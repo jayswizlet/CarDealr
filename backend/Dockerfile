@@ -18,7 +18,6 @@ RUN npm ci --omit=dev
 COPY prisma ./prisma
 ENV DATABASE_URL="postgresql://x:x@x:5432/x"
 RUN npx prisma generate
-ENV DATABASE_URL=""
 COPY --from=builder /app/dist ./dist
 EXPOSE 3001
 CMD ["sh", "-c", "npx prisma migrate deploy && node dist/index.js"]
