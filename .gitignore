@@ -6,4 +6,4 @@ venv/
 dist/
 __pycache__/
 backend/.env
-backend/.env
+backend/.env.*
