@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(psql -U postgres -c \"CREATE DATABASE cardealr;\")",
+      "Bash(brew list *)",
+      "Bash(npx tsc *)",
+      "Bash(chmod +x /Users/jaysteezy/Documents/Development/CarDealr/python/run_seed.sh)"
+    ]
+  }
+}

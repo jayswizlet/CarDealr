@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Listing {
+  id           Int      @id @default(autoincrement())
+  make         String
+  model        String
+  year         Int
+  price        Float
+  mileage      Float
+  condition    String?
+  fuelType     String?
+  transmission String?
+  color        String?
+  city         String?
+  state        String?
+  description  String?
+  createdAt    DateTime @default(now())
+
+  @@index([make, model])
+  @@index([year])
+  @@index([price])
+  @@index([mileage])
+}
