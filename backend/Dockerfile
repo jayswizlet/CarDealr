@@ -4,7 +4,7 @@ RUN apt-get update -y && apt-get install -y openssl && rm -rf /var/lib/apt/lists
 COPY package*.json ./
 RUN npm ci
 COPY prisma ./prisma
-RUN npx prisma generate
+RUN DATABASE_URL="postgresql://x:x@x:5432/x" npx prisma generate
 COPY tsconfig.json ./
 COPY src ./src
 RUN npm run build
@@ -15,7 +15,7 @@ RUN apt-get update -y && apt-get install -y openssl && rm -rf /var/lib/apt/lists
 COPY package*.json ./
 RUN npm ci --omit=dev
 COPY prisma ./prisma
-RUN npx prisma generate
+RUN DATABASE_URL="postgresql://x:x@x:5432/x" npx prisma generate
 COPY --from=builder /app/dist ./dist
 EXPOSE 3001
 CMD ["sh", "-c", "npx prisma migrate deploy && node dist/index.js"]
