@@ -5,3 +5,5 @@ venv/
 .next/
 dist/
 __pycache__/
+backend/.env
+backend/.env
