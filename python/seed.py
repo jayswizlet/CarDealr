@@ -114,7 +114,7 @@ def load_and_clean(csv_path: str) -> pd.DataFrame:
 
 def insert_rows(df: pd.DataFrame):
     print(f"Connecting to database ...")
-    conn = psycopg2.connect(DATABASE_URL)
+    conn = psycopg2.connect(DATABASE_URL, sslmode="require")
     cur = conn.cursor()
 
     # Clear existing data for idempotent re-runs
